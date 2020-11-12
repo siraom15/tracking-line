@@ -19,6 +19,7 @@ app.post('/webhook', async (req, res, next) => {
     if(typeOfCompany == "j"){
         reply(reply_token, await jandtGen(billcode), lineToken);
     }
+    res.sendStatus(200);
    
 })
 
