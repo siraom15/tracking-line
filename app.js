@@ -23,7 +23,7 @@ app.post('/webhook', async (req, res, next) => {
     let reply_token = req.body.events[0].replyToken;
     let msg = req.body.events[0].message.text;
     let typeOfCompany = msg.substr(0, 1);
-    let billcode = msg.substr(2, billcode.length).trim();
+    let billcode = msg.substr(2, msg.length).trim();
 
     if (typeOfCompany == "j") {
         reply(reply_token, await jandtGen(billcode), lineToken);
