@@ -28,6 +28,9 @@ app.post('/webhook', async (req, res, next) => {
     if (typeOfCompany == "j") {
         reply(reply_token, await jandtGen(billcode), lineToken);
     }
+    else {
+        reply(reply_token, "พิมพ์ วิธีใช้ เพื่อรับวิธีใช้", lineToken);
+    }
     res.sendStatus(200);
 
 })
