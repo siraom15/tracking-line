@@ -35,7 +35,13 @@ app.post('/webhook', async (req, res, next) => {
         reply(reply_token, await postGen(billcode), lineToken);
     }
     else {
-        reply(reply_token, "พิมพ์ วิธีใช้ เพื่อรับวิธีใช้", lineToken);
+        let str = `วิธีใช้ \n`;
+        str += `พิมพ์ประเภทบริษัทขนส่ง ตามด้วย เลขพัสดุ \n`;
+        str += `ประเภทบริษัทขนส่ง \np = ไปรษณีย์ \nj = J&T Express\n`;
+        str += `ตัวอย่างเช่น p EF582568151TH คือค้นหา เลขพัสดุ EF582568151TH ของไปรษณีย์`;
+
+        reply(reply_token, str, lineToken);
+
     }
     res.sendStatus(200);
 
