@@ -1,9 +1,18 @@
-const expres = require('express');
-const app = expres();
+const express = require('express')
+const bodyParser = require('body-parser')
+const request = require('request')
+const app = express()
+const unirest = require('unirest');
+const fetch = require('node-fetch');
+const { json } = require('body-parser');
+const port = process.env.PORT || 4000;
+
 const reply = require('./reply');
 const jandtGen = require('./message_generate/jandtGen');
 const { lineToken, postToken } = require('./config.json');
-const port = process.env.PORT || 4000;
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
     res.send("hello");
