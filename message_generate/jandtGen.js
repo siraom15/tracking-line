@@ -14,6 +14,7 @@ async function generate(billcode) {
             return str;
         } catch (err) {
             console.log(err);
+            return `ไม่พบหมายเลขนี้`;
         }
     });
 }
