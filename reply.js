@@ -1,3 +1,5 @@
+const request = require('request')
+
 function reply(reply_token, msg, line_token) {
     let headers = {
         'Content-Type': 'application/json',
