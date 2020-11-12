@@ -1,8 +1,8 @@
 const getStatus = require('../api/jandt');
 
 
-async function generate() {
-    return await getStatus("623339712601").then((data) => {
+async function generate(billcode) {
+    return await getStatus(billcode).then((data) => {
         let details = data.details[0]
 
         let str = `สถานะ -> J&T Express เลข ${data.billcode} \n`;
