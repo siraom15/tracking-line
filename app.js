@@ -22,15 +22,14 @@ app.get('/', (req, res) => {
 app.post('/webhook', async (req, res, next) => {
     let reply_token = req.body.events[0].replyToken;
     let msg = req.body.events[0].message.text;
-    // let typeOfCompany = msg.substr(0, 1);
-    // let billcode = msg.substr(2,billcode.length);
-    
-    // if(typeOfCompany == "j"){
-    //     reply(reply_token, await jandtGen(billcode), lineToken);
-    // }
-    reply(reply_token, msg, lineToken)
+    let typeOfCompany = msg.substr(0, 1);
+    let billcode = str.substr(2, billcode.length).trim();
+
+    if (typeOfCompany == "j") {
+        reply(reply_token, await jandtGen(billcode), lineToken);
+    }
     res.sendStatus(200);
-   
+
 })
 
 app.listen(port)
