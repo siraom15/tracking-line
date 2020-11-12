@@ -8,7 +8,10 @@ const { json } = require('body-parser');
 const port = process.env.PORT || 4000;
 
 const reply = require('./reply');
+
 const jandtGen = require('./message_generate/jandtGen');
+const postGen = require('./message_generate/postGen');
+
 const { lineToken, postToken } = require('./config.json');
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -27,6 +30,9 @@ app.post('/webhook', async (req, res, next) => {
 
     if (typeOfCompany == "j") {
         reply(reply_token, await jandtGen(billcode), lineToken);
+    }
+    else if (typeOfCompany == "p") {
+        reply(reply_token, await postGen(billcode), lineToken);
     }
     else {
         reply(reply_token, "พิมพ์ วิธีใช้ เพื่อรับวิธีใช้", lineToken);
