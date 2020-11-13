@@ -41,9 +41,9 @@ app.post('/webhook', async (req, res, next) => {
     }
     else {
         let str = `วิธีใช้ \n`;
-        str += `พิมพ์ประเภทบริษัทขนส่ง ตามด้วย เลขพัสดุ \n`;
-        str += `ประเภทบริษัทขนส่ง \np = ไปรษณีย์ \nj = J&T Express\ns = Shoppee Express`;
-        str += `ตัวอย่างเช่น p EF582568151TH คือค้นหา เลขพัสดุ EF582568151TH ของไปรษณีย์`;
+        str += `พิมพ์ประเภทบริษัทขนส่ง ตามด้วย เลขพัสดุ \n\n`;
+        str += `ประเภทบริษัทขนส่ง \np = ไปรษณีย์ \nj = J&T Express\ns = Shoppee Express \n\n`;
+        str += `ตัวอย่างเช่น p EF582568151TH คือการค้นหาเลขพัสดุ EF582568151TH ของไปรษณีย์`;
 
         reply(reply_token, str, lineToken);
 
