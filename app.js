@@ -25,19 +25,18 @@ app.get('/', (req, res) => {
 })
 app.post('/webhook', async (req, res, next) => {
     let reply_token = req.body.events[0].replyToken;
-    let msg = req.body.events[0].message.text;
+    let msg = req.body.events[0].message.text.trim();
     let typeOfCompany = msg.substr(0, 1);
     let billcode = msg.substr(2, msg.length).trim();
 
-    if (typeOfCompany == "j") {
+    if (typeOfCompany == "j" && billcode.length > 0) {
         reply(reply_token, await jandtGen(billcode), lineToken);
     }
-    else if (typeOfCompany == "p") {
+    else if (typeOfCompany == "p" && billcode.length > 0) {
         reply(reply_token, await postGen(billcode), lineToken);
     }
-    else if(typeOfCompany == "s"){
+    else if (typeOfCompany == "s" && billcode.length > 0) {
         reply(reply_token, await shopeeGen(billcode), lineToken);
-
     }
     else {
         let str = `วิธีใช้ \n`;

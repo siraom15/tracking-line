@@ -6,7 +6,6 @@ async function generate(billcode) {
         let details = data.details[0];
         let str = "";
         try {
-
             str = `สถานะ -> J&T Express เลข ${data.billcode} \n`;
             str += `สถานะ : ` + data.status + '\n'
             str += `สถานที่ : ${details.state} ${details.area} ${details.city} \n`
