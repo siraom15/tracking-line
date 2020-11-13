@@ -11,6 +11,7 @@ const reply = require('./reply');
 
 const jandtGen = require('./message_generate/jandtGen');
 const postGen = require('./message_generate/postGen');
+const shopeeGen = require('./message_generate/shopeeGen');
 
 const { lineToken, postToken } = require('./config.json');
 
@@ -34,10 +35,14 @@ app.post('/webhook', async (req, res, next) => {
     else if (typeOfCompany == "p") {
         reply(reply_token, await postGen(billcode), lineToken);
     }
+    else if(typeOfCompany == "s"){
+        reply(reply_token, await shopeeGen(billcode), lineToken);
+
+    }
     else {
         let str = `วิธีใช้ \n`;
         str += `พิมพ์ประเภทบริษัทขนส่ง ตามด้วย เลขพัสดุ \n`;
-        str += `ประเภทบริษัทขนส่ง \np = ไปรษณีย์ \nj = J&T Express\n`;
+        str += `ประเภทบริษัทขนส่ง \np = ไปรษณีย์ \nj = J&T Express\ns = Shoppee Express`;
         str += `ตัวอย่างเช่น p EF582568151TH คือค้นหา เลขพัสดุ EF582568151TH ของไปรษณีย์`;
 
         reply(reply_token, str, lineToken);
