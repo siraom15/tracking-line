@@ -4,8 +4,14 @@
 <hr />
 
 ## Demo 
+
+#### QR code
+
 ![QR code](https://github.com/siraom15/tracking-line/blob/main/img/488wtglz.png?raw=true)
 
+OR
+#### Add by basic ID
+@488wtglz
 <hr />
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
